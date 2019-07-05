@@ -25,7 +25,7 @@ action - The action suggested by the system to a teacher about a given student b
 
 #### Classification Tree:
 
-![tree1](https://github.com/lizarova777/assignment5/blob/master/tree.pdf)
+![tree1](https://github.com/lizarova777/assignment5/blob/master/tree-1.png)
 
 #### Regression Tree:
 
