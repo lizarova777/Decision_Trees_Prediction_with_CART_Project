@@ -5,7 +5,9 @@ date: "November 13, 2018"
 output: html_document
 ---
 
-#Call Libraries
+Data from the Assistments Intelligent Tutoring system will be used for the analysis. This system gives students hints based on how they perform on math problems. 
+
+# Call Libraries
 ```{r}
 library(rpart)
 library(party)
@@ -17,6 +19,7 @@ library(party)
 ```
 
 #Classification Tree
+First we will build a classification tree to predict which students ask a teacher for help, which start a new session, or which give up, based on whether or not the student completed a session (D1$complete) and whether or not they asked for hints (D1$hint.y). 
 ```{r}
 c.tree <- rpart(action ~ hint.y + complete, method="class", data=D1) #Notice the standard R notion for a formula X ~ Y
 
@@ -32,6 +35,10 @@ post(c.tree, file = "tree.ps", title = "Session Completion Action: 1 - Ask teach
 ## Part II
 
 #Regression Tree
+
+We want to see if we can build a decision tree to help teachers decide which students to follow up with, based on students' performance in Assistments. We will create three groups ("teacher should intervene", "teacher should monitor student progress" and "no action") based on students' previous use of the system and how many hints they use. To do this we will be building a decision tree using the "party" package. The party package builds decision trees based on a set of statistical stopping rules.
+
+#Take a look at our outcome variable "score"
 ```{r}
 hist(D1$score)
 ```
@@ -57,6 +64,8 @@ plot(score_ctree)
 ```
 
 #Test Tree
+Upload the data "intelligent_tutor_new.csv". This is a data set of a differnt sample of students doing the same problems in the same system. We can use the tree we built for the previous data set to try to predict the "advice" we should give the teacher about these new students. 
+
 ```{r}
 #Upload new data
 
@@ -86,6 +95,6 @@ table(D2$prediction)
 ```
 
 ```{r}
-# Answer: For the observed results, it is supposed to say "no action" for all students since this dataset represents those students that scored higher than 80%, which is indicated by their score of 1. The model predicted the advice correctly 58% of the time. However, the error rate of the model is 42% percent since 42% of the time, the predicted advice was "monitor". 
+# Answer: For the observed results, it is supposed to say "no action" for all students since this dataset represents those students that scored higher than 80%, which is indicated by their score of 1. The model predicted the advice correctly 58% of the time. However, the error rate of the model is 42% percent since 42% of the time, the predicted advice was "monitor". This suggests that this regression tree is not overfitted. In other words, it is generalizable.   
 ```
 
