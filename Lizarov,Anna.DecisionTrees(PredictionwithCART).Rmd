@@ -95,6 +95,6 @@ table(D2$prediction)
 ```
 
 ```{r}
-# Answer: For the observed results, it is supposed to say "no action" for all students since this dataset represents those students that scored higher than 80%, which is indicated by their score of 1. The model predicted the advice correctly 58% of the time. However, the error rate of the model is 42% percent since 42% of the time, the predicted advice was "monitor". This suggests that this regression tree is not overfitted. In other words, it is generalizable.   
+# Answer: For the observed results, it is supposed to say "no action" for all students since this dataset represents those students that scored higher than 80%, which is indicated by their score of 1. The model predicted the advice correctly 58% of the time. However, the error rate of the model is 42% percent since 42% of the time, the predicted advice was "monitor". This suggests that this regression tree is not overfitted. In other words, it is more generalizable.   
 ```
 
