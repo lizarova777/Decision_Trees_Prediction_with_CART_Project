@@ -80,7 +80,7 @@ D2$prediction <- predict(score_ctree, D2)
 ##Part III
 Compare the predicted advice with the actual advice that these students recieved. What is the difference between the observed and predicted results?
 ```{r}
-#If the model was perfect, would say "no action" for all students due to their score of 1. In other words, everyone scored higher than 80%. 
+#If the model was perfect, it would say "no action" for all students due to their score of 1. In other words, everyone scored higher than 80%. 
 
 table(D2$prediction)
 
