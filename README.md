@@ -25,9 +25,17 @@ action - The action suggested by the system to a teacher about a given student b
 
 #### Classification Tree:
 
+```
+c.tree <- rpart(action ~ hint.y + complete, method="class", data=D1)
+```
+
 ![tree1](https://github.com/lizarova777/assignment5/blob/master/tree-1.png)
 
 #### Regression Tree:
+
+```
+score_ctree <- ctree(factor(advice) ~ prior_prob_count + prior_percent_correct + hints, D1)
+```
 
 ![tree2](https://github.com/lizarova777/assignment5/blob/master/Score_Tree.png)
 
